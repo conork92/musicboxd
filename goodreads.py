@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import json
+import string
+
 
 def get_artist_letter(letter):
     
@@ -71,8 +73,8 @@ def get_artist_letter(letter):
 
 def get_all_artists():
     all_artist = []
-    for i in range(ord('a'), ord('z')+1):
-        artists = get_artist_letter(i)
+    for c in string.ascii_lowercase:
+        artists = get_artist_letter(c)
         all_artist.append(artists)
     artists = get_artist_letter("#")
     all_artist.append(artists)
