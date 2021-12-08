@@ -96,4 +96,4 @@ def create_df(country_list,name="artist_top_album.csv"):
 
 if __name__ == "__main__":
     country_list, year_list = get_country_and_year_list(URL="https://www.besteveralbums.com/bandstats.php?l=ng")
-    create_df(country_list,name="artist_top_album.csv"))
+    create_df(country_list,name="artist_top_album.csv")
