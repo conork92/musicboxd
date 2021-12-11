@@ -20,24 +20,28 @@ for record in mydivs:
     country_img = record.img["src"]
     link = record.a["href"]
     artist = record.a.string
-    row = {"alt_country":alt_country,
-        "country":country,
-        "country_img":country_img,
-        "link":link,
-        "artist":artist}
+    row = {
+        "alt_country": alt_country,
+        "country": country,
+        "country_img": country_img,
+        "link": link,
+        "artist": artist,
+    }
     artists.append(row)
-    
+
 for record in mydivs2:
     alt_country = record.img["alt"]
     country = record.img["title"]
     country_img = record.img["src"]
     link = record.a["href"]
     artist = record.a.string
-    row = {"alt_country":alt_country,
-        "country":country,
-        "country_img":country_img,
-        "link":link,
-        "artist":artist}
+    row = {
+        "alt_country": alt_country,
+        "country": country,
+        "country_img": country_img,
+        "link": link,
+        "artist": artist,
+    }
     artists.append(row)
 
 "https://www.besteveralbums.com/bandstats.php?l=ng"
@@ -49,26 +53,22 @@ record = page.content
 soup = BeautifulSoup(record, "html.parser")
 
 link_list = []
-for i in soup.find_all('option'):
-    link_id = i.get('value')
-    link_text= i.get_text()
+for i in soup.find_all("option"):
+    link_id = i.get("value")
+    link_text = i.get_text()
     link_url = "https://www.besteveralbums.com/bandstats.php?l={}".format(link_id)
-    data = {"link_id": link_id,
-           "link_text": link_text,
-           "link_url":link_url}
+    data = {"link_id": link_id, "link_text": link_text, "link_url": link_url}
     link_list.append(data)
-    
-country_list = []
-for i in range(0,247):
-    country_list.append(link_list[i])
-    
-year_list = []
-for i in range(247,len(link_list)):
-    year_list.append(link_list[i])
-  
-soup.find_all("tr")
 
-for link in country_links
+country_list = []
+for i in range(0, 247):
+    country_list.append(link_list[i])
+
+year_list = []
+for i in range(247, len(link_list)):
+    year_list.append(link_list[i])
+
+soup.find_all("tr")
 
 
 top_artists = soup.find_all("tr")
