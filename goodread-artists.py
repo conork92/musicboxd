@@ -91,6 +91,27 @@ def create_df(country_list,name="artist_top_album.csv"):
     df = pd.DataFrame(all_artists)
     df.to_csv(name)
 
+
+def simple_album_info(url):
+    page = requests.get(url)
+    record = page.content
+    soup = BeautifulSoup(record, "html.parser")
+    results = soup.find_all("div", class_="buy-panel-text")
+    for job_element in results:
+        text = job_element.text.split("Overall rank: ")
+        year = text[0].split(": ")[-1]
+        overall_rank = text[1].split("th")[0]
+    image  = soup.find_all("div", class_="panel panel-default")
+    for job_element in image:
+        image = job_element.div.source["data-srcset"]
+        
+    album_data = {"year": year,
+             "overall_rank": overall_rank,
+             "image" :image,
+             "description": text}
+    return album_data
+
+
     
 
 
