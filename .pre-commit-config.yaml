@@ -8,7 +8,7 @@ repos:
     hooks:
     - id: black
       args: [
-        --line-length=80, 
+        --line-length=80,
         --target-version=py38
       ]
       exclude: ^(venv/|docs/)
