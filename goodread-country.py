@@ -56,7 +56,9 @@ link_list = []
 for i in soup.find_all("option"):
     link_id = i.get("value")
     link_text = i.get_text()
-    link_url = "https://www.besteveralbums.com/bandstats.php?l={}".format(link_id)
+    link_url = "https://www.besteveralbums.com/bandstats.php?l={}".format(
+        link_id
+    )
     data = {"link_id": link_id, "link_text": link_text, "link_url": link_url}
     link_list.append(data)
 
@@ -79,5 +81,5 @@ for i in top_artists[1]:
 top_artist_link = []
 for i.a in top_artists[1]:
     top_artist_link.append((i.a.get_text()))
-top_artist_link.append(links[0]["href"])
-top_artist_link.append(links[1]["href"])
+    top_artist_link.append(i[0]["href"])
+    top_artist_link.append(i[1]["href"])
