@@ -18,3 +18,8 @@ repos:
     rev: v1.0.5
     hooks:
     -   id: python-bandit-vulnerability-check
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v1.2.3
+    hooks:
+    - id: flake8
