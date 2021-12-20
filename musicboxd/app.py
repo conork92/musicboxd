@@ -13,7 +13,7 @@ def hello():
 def html_table():
     df = pd.read_csv("artist_top_album.csv")
     return render_template(
-        "simple.html",
+        "table.html",
         tables=[df.to_html(classes="data")],
         titles=df.columns.values,
     )
