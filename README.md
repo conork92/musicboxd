@@ -19,4 +19,6 @@ Instructions for using the Repo:
 - Install git hook
 pip install pre-commit
 
-pre-commit install --hook-type pre-commit 
+pre-commit install --hook-type pr
+
+psql -h localhost -U postgres
