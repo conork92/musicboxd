@@ -5,8 +5,18 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello():
-    return "Hello, World!"
+def home_page():
+    return render_template("country.html")
+
+
+@app.route("/log_in", methods=("POST", "GET"))
+def log_in():
+    return render_template("log_in.html")
+
+
+@app.route("/map", methods=("POST", "GET"))
+def map():
+    return render_template("map.html")
 
 
 @app.route("/table", methods=("POST", "GET"))
