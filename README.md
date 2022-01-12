@@ -20,6 +20,8 @@ Ideas:
 
 - Use: https://www.netlify.com/ ?
 
+- use https://github.com/google/python-fire ?
+
 
 Instructions for using the Repo:
 

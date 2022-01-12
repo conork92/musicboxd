@@ -7,3 +7,12 @@ make create_conatiner_db:
 
 make run_container:
 	docker container start musicboxd-postgres   
+
+make create_airflow:
+	cd airflow
+	airflow db init
+	airflow scheduler
+
+make run_airflow:
+	cd airflow
+	airflow webserver
