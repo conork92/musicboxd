@@ -12,7 +12,14 @@ Ideas:
 
 - Type a sentence and it matches to some music
 
-- 
+- add airflow
+
+- Add Kafka
+
+- Use Kubernetes
+
+- Use: https://www.netlify.com/ ?
+
 
 Instructions for using the Repo:
 
