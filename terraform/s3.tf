@@ -26,3 +26,22 @@ EOF
   }
 
 }
+
+resource "aws_s3_bucket" "athena_bucket" {
+  bucket = "athena-bucket-csvs-musicboxd"
+  acl    = "private"
+
+  tags = {
+    Name        = "My bucket"
+    Environment = "musicboxd"
+  }
+}
+
+resource "aws_s3_bucket_object" "csv_files" {
+  for_each = fileset("bucket_files", "*")
+  bucket = aws_s3_bucket.athena_bucket.id
+  key    = each.value
+  source = "bucket_files/${each.value}"
+
+  etag = filemd5("bucket_files/${each.value}")
+}
