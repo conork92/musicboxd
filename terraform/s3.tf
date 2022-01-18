@@ -2,7 +2,6 @@ resource "aws_s3_bucket" "test-bucket" {
   bucket = "my-tf-test-bucket-musicboxd"
   acl    = "public-read"
   policy = data.aws_iam_policy_document.allow_access_for_website.json
-  website_endpoint = true
 website {
     index_document = "index.html"
     error_document = "error.html"
@@ -51,7 +50,7 @@ resource "aws_s3_bucket_object" "index" {
   bucket = aws_s3_bucket.test-bucket.id
   key    = "index.html"
   source = "../musicboxd/templates/index.html"
-
+  content_type = "text/html"
   etag = filemd5("../musicboxd/templates/index.html")
 }
 
