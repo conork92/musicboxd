@@ -4,9 +4,12 @@ from bs4 import BeautifulSoup
 link = "https://www.complex.com/pigeons-and-planes/best-new-artists-august-21/"
 
 
-class p_and_p:
-    def get_simple_artist(link):
-        page = requests.get(link)
+class Pigeons:
+    def __init__(self, link):
+        self.link = link
+
+    def get_simple_artist(self):
+        page = requests.get(self.link)
         record = page.content
         soup = BeautifulSoup(record, "html.parser")
         mydivs = soup.find_all("a", {"class": "article-tags__tag"})
@@ -14,12 +17,12 @@ class p_and_p:
         month = month_str.split("(")[1].split(")")[0]
         return mydivs, month
 
-    def get_basic_artist_info(mydivs, link, month):
+    def get_basic_artist_info(self, mydivs, month):
         month_artist = []
         for i in mydivs[3:]:
             href = i["href"]
             artist = i.text
-            link_page = link
+            link_page = self.link
             data = {
                 "artist": artist,
                 "href": href,
@@ -27,4 +30,9 @@ class p_and_p:
                 "month": month,
             }
             month_artist.append(data)
+        return month_artist
+
+    def get_artist_list(self):
+        mydivs, month = self.get_simple_artist()
+        month_artist = self.get_basic_artist_info(mydivs, month)
         return month_artist
