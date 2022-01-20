@@ -2,6 +2,7 @@ resource "aws_s3_bucket" "test-bucket" {
   bucket = "my-tf-test-bucket-musicboxd"
   acl    = "public-read"
   policy = data.aws_iam_policy_document.allow_access_for_website.json
+  hosted_zone_id  = aws_route53_record.www.zone_id
 website {
     index_document = "index.html"
     error_document = "error.html"
