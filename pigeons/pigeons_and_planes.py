@@ -24,6 +24,7 @@ class Pigeons:
             artist = i.text
             link_page = self.link
             data = {
+                "id": str(month + artist),
                 "artist": artist,
                 "href": href,
                 "link_page": link_page,
