@@ -1,4 +1,3 @@
-
 make build_db_image:
 	docker build -t musicboxd-image .
 
